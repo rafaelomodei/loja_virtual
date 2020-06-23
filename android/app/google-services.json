@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "820102529882",
+    "firebase_url": "https://loja-virtual-6b1b9.firebaseio.com",
+    "project_id": "loja-virtual-6b1b9",
+    "storage_bucket": "loja-virtual-6b1b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820102529882:android:8f01bd95ef928e6501e963",
+        "android_client_info": {
+          "package_name": "com.omodei.lojavirtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820102529882-hvcdm2c31ed17ko4e5iahbg94cg565sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDN8R8xxf3k9DH7t2AIHOEtdzEr7iUyYwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "820102529882-hvcdm2c31ed17ko4e5iahbg94cg565sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
