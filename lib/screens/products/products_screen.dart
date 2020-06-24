@@ -95,6 +95,13 @@ class ProductsScreen extends StatelessWidget {
               return ProductListTile(filterProducts[index]);
             });
       }),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        foregroundColor: Theme.of(context).primaryColor,
+        onPressed: (){
+          Navigator.of(context).pushNamed('/cart');
+        },
+      ),
     );
   }
 }

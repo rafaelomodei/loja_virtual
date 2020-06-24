@@ -33,9 +33,13 @@ class MyApp extends StatelessWidget {
           create: (_) => ProductManager(),
           lazy: false,
         ),
-        Provider(
+        //toda vez que o UserManager tiver attualizado o CartManager também att
+        ChangeNotifierProxyProvider<UserManager, CartManager>(
           create: (_) => CartManager(),
           lazy: false, //com false ele já carreg o carrinho quando abre o app
+          update: (_, userManager, cartManager) =>
+          //injeta p userManager no cartManager para ele saber se teve alteração
+          cartManager..updateUser(userManager), // o .. é efeito cascata
         ),
       ],
       child: MaterialApp(

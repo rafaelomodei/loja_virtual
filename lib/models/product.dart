@@ -57,4 +57,5 @@ class Product extends ChangeNotifier {
       return null;
     }
   }
+
 }

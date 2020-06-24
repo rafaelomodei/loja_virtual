@@ -21,6 +21,10 @@ class User{
   DocumentReference get firestorRef =>
       Firestore.instance.document('users/$id');
 
+  //salva a referencia do cart, assim fica mais organizado colocando aqui
+  CollectionReference get cartReference =>
+  firestorRef.collection('cart');
+
   //vai entrar no banco de dados e vai salvar todos os dados o usuário
   Future<void> saveData() async{
     //recebe o mapa (toMap) do usuário
