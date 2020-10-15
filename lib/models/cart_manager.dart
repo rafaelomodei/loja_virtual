@@ -89,7 +89,7 @@ class CartManager extends ChangeNotifier{
 
       _updateCartProduct(cartProduct);
     }
-    print(productsPrice);
+    notifyListeners(); //notifica a galera
   }
 
 

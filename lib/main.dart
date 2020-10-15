@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lojavirtual/models/admin_users_manager.dart';
 import 'package:lojavirtual/models/cart_manager.dart';
 import 'package:lojavirtual/models/product.dart';
 import 'package:lojavirtual/models/user_manager.dart';
@@ -10,12 +11,11 @@ import 'package:lojavirtual/screens/product/product_screen.dart';
 import 'package:lojavirtual/screens/signup/signup_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'models/home_manager.dart';
 import 'models/product_manager.dart';
 
 void main() {
   runApp(MyApp());
-
-  Firestore.instance.collection('teste').add({'teste': 'teste'});
 }
 
 class MyApp extends StatelessWidget {
@@ -33,6 +33,10 @@ class MyApp extends StatelessWidget {
           create: (_) => ProductManager(),
           lazy: false,
         ),
+        ChangeNotifierProvider(
+          create: (_) => HomeManager(),
+          lazy: false,
+        ),
         //toda vez que o UserManager tiver attualizado o CartManager também att
         ChangeNotifierProxyProvider<UserManager, CartManager>(
           create: (_) => CartManager(),
@@ -40,6 +44,12 @@ class MyApp extends StatelessWidget {
           update: (_, userManager, cartManager) =>
           //injeta p userManager no cartManager para ele saber se teve alteração
           cartManager..updateUser(userManager), // o .. é efeito cascata
+        ),
+        ChangeNotifierProxyProvider<UserManager, AdminUsersManager>(
+          create: (_) => AdminUsersManager(),
+          lazy: false,
+          update: (_, userManager, adminUsersManager) =>
+          adminUsersManager..updateUser(userManager),
         ),
       ],
       child: MaterialApp(

@@ -17,6 +17,7 @@ class User{
 
   String confirmPassword;
 
+  bool admin = false;
   //Seta o local onde vai se armazenado as funções
   DocumentReference get firestorRef =>
       Firestore.instance.document('users/$id');

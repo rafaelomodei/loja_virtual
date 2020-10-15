@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lojavirtual/models/page_manager.dart';
 import 'package:lojavirtual/models/user_manager.dart';
 import 'package:provider/provider.dart';
 
@@ -34,6 +35,7 @@ class CustomDrawerHeader extends StatelessWidget {
               GestureDetector( //botão de sair
                 onTap: (){
                   if(userManager.isLoggedIn){ //verifica se o user talogado
+                    context.read<PageManager>().setPage(0); // caso o user seja adm e ele deslocar na pagina que ó existe para adm, então ele vai para pagina 0
                     userManager.signOut(); //desloca o usuário
                   }else{
                     Navigator.of(context).pushNamed('/login'); //vai para tela de login

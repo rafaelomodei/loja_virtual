@@ -20,7 +20,10 @@ class CartProduct extends ChangeNotifier{
 
         //busca o produto
         firestore.document('products/$productId').get().then(
-                (doc) => product = Product.fromDocument(doc)
+                (doc){
+                  product = Product.fromDocument(doc);
+                  notifyListeners();
+                }
         );
   }
 
